@@ -141,6 +141,39 @@ const FORM_CONFIG = {
             { delayMs: 2600, progress: 80, status: "Montando arquivo consolidado...", detail: "Criando as abas Direto e Indireto no mesmo Excel." },
             { delayMs: 4200, progress: 92, status: "Gerando arquivo final...", detail: "Preparando o relatorio consolidado para download." }
         ]
+    },
+    sudoeste_processado_v2: {
+        endpoint: "/sudoeste-processado-v2",
+        filename: "sudoeste_processado_v2.xlsx",
+        requiredCount: 3,
+        fields: [
+            {
+                name: "inicial_processado",
+                formKey: "inicial_processado",
+                label: "Inicial processado",
+                hint: "Envie o XLSX gerado no fluxo Sudoeste - inicial."
+            },
+            {
+                name: "direto",
+                formKey: "direto",
+                label: "Arquivo Direto",
+                hint: "Planilha do acionamento direto."
+            },
+            {
+                name: "indireto",
+                formKey: "indireto",
+                label: "Arquivo Indireto",
+                hint: "Planilha do acionamento indireto."
+            }
+        ],
+        progressSteps: [
+            { delayMs: 0, progress: 10, status: "Validando arquivos...", detail: "Conferindo os tres arquivos obrigatorios." },
+            { delayMs: 350, progress: 25, status: "Enviando arquivos...", detail: "Transferindo os arquivos para o servidor." },
+            { delayMs: 1200, progress: 50, status: "Processando inicial...", detail: "Lendo a planilha inicial processada." },
+            { delayMs: 2600, progress: 72, status: "Validando contra direto...", detail: "Procurando correspondencias no acionamento direto." },
+            { delayMs: 4200, progress: 86, status: "Validando contra indireto...", detail: "Usando o indireto apenas como apoio de validacao." },
+            { delayMs: 5600, progress: 95, status: "Gerando arquivo final...", detail: "Montando um unico Excel com as abas Direto e Indireto." }
+        ]
     }
 };
 

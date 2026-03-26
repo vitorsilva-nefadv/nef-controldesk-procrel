@@ -467,3 +467,404 @@ pip install python-multipart
 2026-03-25 08:24:48,545 INFO app.sudoeste_consolidado Iniciando exportacao de Excel consolidado | {"fluxo": "sudoeste-consolidado", "linhas_direto": 57, "linhas_indireto": 27, "request_id": "3c760ed63b2a415aad428ba02f66b498"}
 2026-03-25 08:24:48,653 INFO app.sudoeste_consolidado Exportacao de Excel consolidado concluida | {"fluxo": "sudoeste-consolidado", "request_id": "3c760ed63b2a415aad428ba02f66b498", "tamanho_bytes": 16282}
 2026-03-25 08:24:48,653 INFO app.api Processamento concluido com sucesso | {"arquivo_saida": "sudoeste_consolidado_processado.xlsx", "fluxo": "sudoeste-consolidado", "request_id": "3c760ed63b2a415aad428ba02f66b498", "tamanho_saida_bytes": 16282}
+2026-03-25 11:05:08,524 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,525 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direta": "sudoeste_direto_processado.xlsx", "indireto": "sudoeste_indireto_processado.xlsx", "processada": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,525 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,526 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,526 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "processada", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782", "tamanho_bytes": 383935}
+2026-03-25 11:05:08,527 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_direto_processado.xlsx", "campo": "direta", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782", "tamanho_bytes": 12216}
+2026-03-25 11:05:08,527 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_indireto_processado.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782", "tamanho_bytes": 32230}
+2026-03-25 11:05:08,528 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-consolidado", "mapeamento": {"direta_excel": "direta", "indireto_excel": "indireto", "processada_excel": "processada"}, "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,528 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,528 INFO app.sudoeste_consolidado Iniciando fluxo sudoeste-consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,529 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-direto no consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,529 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:08,530 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782", "tamanho_bytes": 383935}
+2026-03-25 11:05:10,239 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 5205, "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:10,239 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782", "tamanho_bytes": 12216}
+2026-03-25 11:05:10,278 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 57, "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:10,278 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 57, "linhas_processada": 5205, "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+2026-03-25 11:05:10,285 ERROR app.sudoeste_consolidado Erro no fluxo sudoeste-consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+Traceback (most recent call last):
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_consolidado.py", line 47, in processar_sudoeste_consolidado
+    direto_df = processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 417, in processar_sudoeste_direto_frames
+    return _processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 301, in _processar_sudoeste_direto_frames
+    cols_direta = _preparar_colunas_direta(direta)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 129, in _preparar_colunas_direta
+    produto=_resolver_coluna_obrigatoria(dataframe, ("produto",), nome_exibicao="Produto"),
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 90, in _resolver_coluna_obrigatoria
+    raise ValueError(f"Coluna obrigatoria nao encontrada: {nome_exibicao}")
+ValueError: Coluna obrigatoria nao encontrada: Produto
+2026-03-25 11:05:10,290 ERROR app.api Erro ao processar fluxo | {"fluxo": "sudoeste-consolidado", "request_id": "0466de5c3ba4453cb5c60e04fa44b782"}
+Traceback (most recent call last):
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\api.py", line 175, in _executar_fluxo_upload
+    resultado = processor(**processor_kwargs)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_consolidado.py", line 47, in processar_sudoeste_consolidado
+    direto_df = processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 417, in processar_sudoeste_direto_frames
+    return _processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 301, in _processar_sudoeste_direto_frames
+    cols_direta = _preparar_colunas_direta(direta)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 129, in _preparar_colunas_direta
+    produto=_resolver_coluna_obrigatoria(dataframe, ("produto",), nome_exibicao="Produto"),
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 90, in _resolver_coluna_obrigatoria
+    raise ValueError(f"Coluna obrigatoria nao encontrada: {nome_exibicao}")
+ValueError: Coluna obrigatoria nao encontrada: Produto
+2026-03-25 11:06:17,327 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,328 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direta": "sudoeste_direto_processado.xlsx", "indireto": "sudoeste_indireto_processado.xlsx", "processada": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,328 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,328 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,329 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "processada", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1", "tamanho_bytes": 383935}
+2026-03-25 11:06:17,330 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_direto_processado.xlsx", "campo": "direta", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1", "tamanho_bytes": 12216}
+2026-03-25 11:06:17,330 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_indireto_processado.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1", "tamanho_bytes": 32230}
+2026-03-25 11:06:17,331 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-consolidado", "mapeamento": {"direta_excel": "direta", "indireto_excel": "indireto", "processada_excel": "processada"}, "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,331 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,331 INFO app.sudoeste_consolidado Iniciando fluxo sudoeste-consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,332 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-direto no consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,332 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:17,333 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1", "tamanho_bytes": 383935}
+2026-03-25 11:06:18,904 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 5205, "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:18,904 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1", "tamanho_bytes": 12216}
+2026-03-25 11:06:18,935 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 57, "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:18,936 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 57, "linhas_processada": 5205, "request_id": "9561bf37a89f43b497a93b19280484d1"}
+2026-03-25 11:06:18,937 ERROR app.sudoeste_consolidado Erro no fluxo sudoeste-consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+Traceback (most recent call last):
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_consolidado.py", line 47, in processar_sudoeste_consolidado
+    direto_df = processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 417, in processar_sudoeste_direto_frames
+    return _processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 301, in _processar_sudoeste_direto_frames
+    cols_direta = _preparar_colunas_direta(direta)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 129, in _preparar_colunas_direta
+    produto=_resolver_coluna_obrigatoria(dataframe, ("produto",), nome_exibicao="Produto"),
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 90, in _resolver_coluna_obrigatoria
+    raise ValueError(f"Coluna obrigatoria nao encontrada: {nome_exibicao}")
+ValueError: Coluna obrigatoria nao encontrada: Produto
+2026-03-25 11:06:18,940 ERROR app.api Erro ao processar fluxo | {"fluxo": "sudoeste-consolidado", "request_id": "9561bf37a89f43b497a93b19280484d1"}
+Traceback (most recent call last):
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\api.py", line 175, in _executar_fluxo_upload
+    resultado = processor(**processor_kwargs)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_consolidado.py", line 47, in processar_sudoeste_consolidado
+    direto_df = processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 417, in processar_sudoeste_direto_frames
+    return _processar_sudoeste_direto_frames(processada_excel, direta_excel)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 301, in _processar_sudoeste_direto_frames
+    cols_direta = _preparar_colunas_direta(direta)
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 129, in _preparar_colunas_direta
+    produto=_resolver_coluna_obrigatoria(dataframe, ("produto",), nome_exibicao="Produto"),
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vitor.hugo\Documents\nef-controldesk-procrel\app\sudoeste_direto.py", line 90, in _resolver_coluna_obrigatoria
+    raise ValueError(f"Coluna obrigatoria nao encontrada: {nome_exibicao}")
+ValueError: Coluna obrigatoria nao encontrada: Produto
+2026-03-25 11:09:05,483 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,483 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direta": "Acionamento Direto.xlsx", "indireto": "Acionamento Indireto.xlsx", "processada": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,484 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["processada", "direta", "indireto"], "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,484 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,485 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "processada", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 383935}
+2026-03-25 11:09:05,485 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Direto.xlsx", "campo": "direta", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 487095}
+2026-03-25 11:09:05,486 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Indireto.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 275850}
+2026-03-25 11:09:05,486 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-consolidado", "mapeamento": {"direta_excel": "direta", "indireto_excel": "indireto", "processada_excel": "processada"}, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,487 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,487 INFO app.sudoeste_consolidado Iniciando fluxo sudoeste-consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,488 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-direto no consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,488 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:05,488 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 383935}
+2026-03-25 11:09:07,055 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-direto/processada", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 5205, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:07,055 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 487095}
+2026-03-25 11:09:08,304 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 22, "contexto": "sudoeste-direto/direta", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 185, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,305 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 185, "linhas_processada": 5205, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,307 INFO app.sudoeste_direto Validacao de colunas obrigatorias concluida | {"colunas_direta": {"cpf": "CPF/CNPJ", "dt_acionamento": "DT ACIONAMENTO", "produto": "Produto", "vencimento": "Vencimento do produto (mais atrasado)"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-direto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,461 INFO app.sudoeste_direto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-direto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,935 INFO app.sudoeste_direto Processamento de frames concluido | {"fluxo": "sudoeste-direto", "grupos_com_match": 57, "grupos_sem_cpf": 0, "grupos_sem_match": 1990, "grupos_total": 2047, "linhas_saida": 57, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,937 INFO app.sudoeste_consolidado Etapa sudoeste-direto concluida no consolidado | {"fluxo": "sudoeste-consolidado", "linhas_saida": 57, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,938 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-indireto no consolidado | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,938 INFO app.sudoeste_indireto Iniciando processamento de frames | {"fluxo": "sudoeste-indireto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:08,939 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/processada", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 383935}
+2026-03-25 11:09:10,474 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-indireto/processada", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 5205, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:10,475 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/indireto", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 275850}
+2026-03-25 11:09:11,343 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 21, "contexto": "sudoeste-indireto/indireto", "fluxo": "sudoeste-consolidado", "formato": "xlsx", "linhas": 3509, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:11,344 INFO app.sudoeste_indireto Leitura das planilhas concluida | {"fluxo": "sudoeste-indireto", "linhas_indireto": 3509, "linhas_processada": 5205, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:11,346 INFO app.sudoeste_indireto Validacao de colunas obrigatorias concluida | {"colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto_legado": "SICREDI_Produto_Legado", "ultimo_acionamento": "UltimoAcionamentoData", "vencimento_mais_antigo": "VencimentoMaisAntigo"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-indireto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:12,266 INFO app.sudoeste_indireto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-indireto", "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:13,464 INFO app.sudoeste_indireto Processamento de frames concluido | {"fluxo": "sudoeste-indireto", "grupos_com_match": 215, "grupos_sem_cpf": 0, "grupos_sem_match": 1832, "grupos_total": 2047, "linhas_saida": 215, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:13,474 INFO app.sudoeste_consolidado Etapa sudoeste-indireto concluida no consolidado | {"fluxo": "sudoeste-consolidado", "linhas_saida": 215, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:13,475 INFO app.sudoeste_consolidado Iniciando exportacao de Excel consolidado | {"fluxo": "sudoeste-consolidado", "linhas_direto": 57, "linhas_indireto": 215, "request_id": "82d9f00d8fc54f4cadc1f283d3413318"}
+2026-03-25 11:09:13,709 INFO app.sudoeste_consolidado Exportacao de Excel consolidado concluida | {"fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_bytes": 36410}
+2026-03-25 11:09:13,710 INFO app.api Processamento concluido com sucesso | {"arquivo_saida": "sudoeste_consolidado_processado.xlsx", "fluxo": "sudoeste-consolidado", "request_id": "82d9f00d8fc54f4cadc1f283d3413318", "tamanho_saida_bytes": 36410}
+2026-03-26 08:44:55,527 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 08:44:55,528 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 5061}
+2026-03-26 08:44:55,560 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 4}
+2026-03-26 08:44:55,561 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4951}
+2026-03-26 08:44:55,570 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 3}
+2026-03-26 08:44:55,570 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4906}
+2026-03-26 08:44:55,577 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:44:55,581 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 08:44:55,597 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_descartadas": 2, "linhas_inicial": 4, "linhas_mantidas": 2, "validadas_direto": 1, "validadas_indireto": 1}
+2026-03-26 08:45:19,766 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 08:45:19,766 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 5061}
+2026-03-26 08:45:19,781 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 4}
+2026-03-26 08:45:19,782 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4951}
+2026-03-26 08:45:19,791 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 3}
+2026-03-26 08:45:19,791 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4906}
+2026-03-26 08:45:19,799 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:19,800 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 08:45:19,806 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_descartadas": 1, "linhas_inicial": 4, "linhas_mantidas": 3, "validadas_direto": 2, "validadas_indireto": 1}
+2026-03-26 08:45:30,159 INFO app.sudoeste Iniciando fluxo sudoeste-inicial
+2026-03-26 08:45:30,160 INFO app.sudoeste Iniciando processamento de frames | {"fluxo": "sudoeste-inicial"}
+2026-03-26 08:45:30,160 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/base", "tamanho_bytes": 4936}
+2026-03-26 08:45:30,178 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-inicial/base", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,178 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/recebimento", "tamanho_bytes": 4978}
+2026-03-26 08:45:30,192 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 7, "contexto": "sudoeste-inicial/recebimento", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,192 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/denodo", "tamanho_bytes": 4956}
+2026-03-26 08:45:30,205 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 3, "contexto": "sudoeste-inicial/denodo", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:30,206 INFO app.sudoeste Leitura das planilhas concluida | {"fluxo": "sudoeste-inicial", "linhas_base": 1, "linhas_denodo": 2, "linhas_recebimento": 1}
+2026-03-26 08:45:30,236 INFO app.sudoeste Base preparada e validada | {"colunas_obrigatorias": {"associado": "ASSOCIADO", "contrato": "N do Contrato", "cpf": "CPF", "parcela": "N Parcela"}, "fluxo": "sudoeste-inicial", "linhas_entrada": 1, "linhas_pos_deduplicacao": 1}
+2026-03-26 08:45:30,273 INFO app.sudoeste Recebimento preparado e validado | {"coluna_cpf": "CPF/CNPJ", "colunas_obrigatorias": {"associado": "Associado", "data": "Data", "historico": "Historico", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-inicial", "linhas_consideradas": 1, "linhas_entrada": 1, "linhas_ignoradas_historico": 0}
+2026-03-26 08:45:30,277 INFO app.sudoeste Denodo preparado e validado | {"colunas_obrigatorias": {"cpf": "cpf_cnpj_formatado", "protocolo": "protocolo", "solucao_associada": "solucao_associada"}, "fluxo": "sudoeste-inicial", "linhas": 2}
+2026-03-26 08:45:30,280 INFO app.sudoeste Iniciando etapa de match | {"fluxo": "sudoeste-inicial", "linhas_recebimento_consideradas": 1}
+2026-03-26 08:45:30,362 INFO app.sudoeste Processamento de frames concluido | {"base_match_ambiguo": 0, "base_match_ausente": 0, "base_match_confirmado": 1, "denodo_match_ambiguo": 1, "denodo_match_ausente": 0, "denodo_match_confirmado": 0, "fluxo": "sudoeste-inicial", "linhas_diagnostico": 1, "linhas_saida": 1}
+2026-03-26 08:45:30,363 INFO app.sudoeste Iniciando exportacao de Excel | {"fluxo": "sudoeste-inicial", "linhas": 1, "sheet_name": "Sudoeste Inicial"}
+2026-03-26 08:45:30,574 INFO app.sudoeste Exportacao de Excel concluida | {"fluxo": "sudoeste-inicial", "sheet_name": "Sudoeste Inicial", "tamanho_bytes": 5118}
+2026-03-26 08:45:30,627 INFO app.sudoeste Iniciando geracao de diagnostico sudoeste-inicial
+2026-03-26 08:45:30,627 INFO app.sudoeste Iniciando processamento de frames | {"fluxo": "sudoeste-inicial"}
+2026-03-26 08:45:30,627 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/base", "tamanho_bytes": 4936}
+2026-03-26 08:45:30,634 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-inicial/base", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,634 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/recebimento", "tamanho_bytes": 4978}
+2026-03-26 08:45:30,644 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 7, "contexto": "sudoeste-inicial/recebimento", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,644 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/denodo", "tamanho_bytes": 4956}
+2026-03-26 08:45:30,650 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 3, "contexto": "sudoeste-inicial/denodo", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:30,650 INFO app.sudoeste Leitura das planilhas concluida | {"fluxo": "sudoeste-inicial", "linhas_base": 1, "linhas_denodo": 2, "linhas_recebimento": 1}
+2026-03-26 08:45:30,661 INFO app.sudoeste Base preparada e validada | {"colunas_obrigatorias": {"associado": "ASSOCIADO", "contrato": "N do Contrato", "cpf": "CPF", "parcela": "N Parcela"}, "fluxo": "sudoeste-inicial", "linhas_entrada": 1, "linhas_pos_deduplicacao": 1}
+2026-03-26 08:45:30,677 INFO app.sudoeste Recebimento preparado e validado | {"coluna_cpf": "CPF/CNPJ", "colunas_obrigatorias": {"associado": "Associado", "data": "Data", "historico": "Historico", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-inicial", "linhas_consideradas": 1, "linhas_entrada": 1, "linhas_ignoradas_historico": 0}
+2026-03-26 08:45:30,681 INFO app.sudoeste Denodo preparado e validado | {"colunas_obrigatorias": {"cpf": "cpf_cnpj_formatado", "protocolo": "protocolo", "solucao_associada": "solucao_associada"}, "fluxo": "sudoeste-inicial", "linhas": 2}
+2026-03-26 08:45:30,683 INFO app.sudoeste Iniciando etapa de match | {"fluxo": "sudoeste-inicial", "linhas_recebimento_consideradas": 1}
+2026-03-26 08:45:30,694 INFO app.sudoeste Processamento de frames concluido | {"base_match_ambiguo": 0, "base_match_ausente": 0, "base_match_confirmado": 1, "denodo_match_ambiguo": 1, "denodo_match_ausente": 0, "denodo_match_confirmado": 0, "fluxo": "sudoeste-inicial", "linhas_diagnostico": 1, "linhas_saida": 1}
+2026-03-26 08:45:30,737 INFO app.sudoeste Iniciando geracao de resumo sudoeste-inicial
+2026-03-26 08:45:30,737 INFO app.sudoeste Iniciando processamento de frames | {"fluxo": "sudoeste-inicial"}
+2026-03-26 08:45:30,737 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/base", "tamanho_bytes": 4936}
+2026-03-26 08:45:30,750 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-inicial/base", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,750 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/recebimento", "tamanho_bytes": 4978}
+2026-03-26 08:45:30,759 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 7, "contexto": "sudoeste-inicial/recebimento", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:30,760 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/denodo", "tamanho_bytes": 4956}
+2026-03-26 08:45:30,766 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 3, "contexto": "sudoeste-inicial/denodo", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:30,766 INFO app.sudoeste Leitura das planilhas concluida | {"fluxo": "sudoeste-inicial", "linhas_base": 1, "linhas_denodo": 2, "linhas_recebimento": 1}
+2026-03-26 08:45:30,777 INFO app.sudoeste Base preparada e validada | {"colunas_obrigatorias": {"associado": "ASSOCIADO", "contrato": "N do Contrato", "cpf": "CPF", "parcela": "N Parcela"}, "fluxo": "sudoeste-inicial", "linhas_entrada": 1, "linhas_pos_deduplicacao": 1}
+2026-03-26 08:45:30,787 INFO app.sudoeste Recebimento preparado e validado | {"coluna_cpf": "CPF/CNPJ", "colunas_obrigatorias": {"associado": "Associado", "data": "Data", "historico": "Historico", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-inicial", "linhas_consideradas": 1, "linhas_entrada": 1, "linhas_ignoradas_historico": 0}
+2026-03-26 08:45:30,796 INFO app.sudoeste Denodo preparado e validado | {"colunas_obrigatorias": {"cpf": "cpf_cnpj_formatado", "protocolo": "protocolo", "solucao_associada": "solucao_associada"}, "fluxo": "sudoeste-inicial", "linhas": 2}
+2026-03-26 08:45:30,798 INFO app.sudoeste Iniciando etapa de match | {"fluxo": "sudoeste-inicial", "linhas_recebimento_consideradas": 1}
+2026-03-26 08:45:30,809 INFO app.sudoeste Processamento de frames concluido | {"base_match_ambiguo": 0, "base_match_ausente": 0, "base_match_confirmado": 1, "denodo_match_ambiguo": 1, "denodo_match_ausente": 0, "denodo_match_confirmado": 0, "fluxo": "sudoeste-inicial", "linhas_diagnostico": 1, "linhas_saida": 1}
+2026-03-26 08:45:30,889 INFO app.sudoeste Iniciando exportacao de diagnostico sudoeste-inicial
+2026-03-26 08:45:30,889 INFO app.sudoeste Iniciando processamento de frames | {"fluxo": "sudoeste-inicial"}
+2026-03-26 08:45:30,889 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/base", "tamanho_bytes": 5219}
+2026-03-26 08:45:30,899 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 7, "contexto": "sudoeste-inicial/base", "formato": "xlsx", "linhas": 5}
+2026-03-26 08:45:30,899 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/recebimento", "tamanho_bytes": 5319}
+2026-03-26 08:45:30,909 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-inicial/recebimento", "formato": "xlsx", "linhas": 6}
+2026-03-26 08:45:30,910 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/denodo", "tamanho_bytes": 4997}
+2026-03-26 08:45:30,918 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 3, "contexto": "sudoeste-inicial/denodo", "formato": "xlsx", "linhas": 3}
+2026-03-26 08:45:30,918 INFO app.sudoeste Leitura das planilhas concluida | {"fluxo": "sudoeste-inicial", "linhas_base": 5, "linhas_denodo": 3, "linhas_recebimento": 6}
+2026-03-26 08:45:30,929 INFO app.sudoeste Base preparada e validada | {"colunas_obrigatorias": {"associado": "ASSOCIADO", "contrato": "N do Contrato", "cpf": "CPF", "parcela": "N Parcela"}, "fluxo": "sudoeste-inicial", "linhas_entrada": 5, "linhas_pos_deduplicacao": 5}
+2026-03-26 08:45:30,969 INFO app.sudoeste Recebimento preparado e validado | {"coluna_cpf": "CPF/CNPJ", "colunas_obrigatorias": {"associado": "Associado", "data": "Data", "historico": "Historico", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-inicial", "linhas_consideradas": 5, "linhas_entrada": 6, "linhas_ignoradas_historico": 1}
+2026-03-26 08:45:30,972 INFO app.sudoeste Denodo preparado e validado | {"colunas_obrigatorias": {"cpf": "cpf_cnpj_formatado", "protocolo": "protocolo", "solucao_associada": "solucao_associada"}, "fluxo": "sudoeste-inicial", "linhas": 3}
+2026-03-26 08:45:30,977 INFO app.sudoeste Iniciando etapa de match | {"fluxo": "sudoeste-inicial", "linhas_recebimento_consideradas": 5}
+2026-03-26 08:45:30,995 INFO app.sudoeste Processamento de frames concluido | {"base_match_ambiguo": 1, "base_match_ausente": 1, "base_match_confirmado": 3, "denodo_match_ambiguo": 0, "denodo_match_ausente": 2, "denodo_match_confirmado": 3, "fluxo": "sudoeste-inicial", "linhas_diagnostico": 5, "linhas_saida": 5}
+2026-03-26 08:45:30,996 INFO app.sudoeste Iniciando exportacao de diagnostico com resumo | {"fluxo": "sudoeste-inicial", "linhas_diagnostico": 5, "linhas_resumo": 8}
+2026-03-26 08:45:31,043 INFO app.sudoeste Exportacao de diagnostico com resumo concluida | {"fluxo": "sudoeste-inicial", "tamanho_bytes": 6543}
+2026-03-26 08:45:31,105 INFO app.sudoeste Iniciando fluxo sudoeste-inicial com diagnostico e resumo
+2026-03-26 08:45:31,105 INFO app.sudoeste Iniciando processamento de frames | {"fluxo": "sudoeste-inicial"}
+2026-03-26 08:45:31,105 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/base", "tamanho_bytes": 5219}
+2026-03-26 08:45:31,115 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 7, "contexto": "sudoeste-inicial/base", "formato": "xlsx", "linhas": 5}
+2026-03-26 08:45:31,115 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/recebimento", "tamanho_bytes": 5319}
+2026-03-26 08:45:31,123 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-inicial/recebimento", "formato": "xlsx", "linhas": 6}
+2026-03-26 08:45:31,123 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-inicial/denodo", "tamanho_bytes": 4997}
+2026-03-26 08:45:31,134 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 3, "contexto": "sudoeste-inicial/denodo", "formato": "xlsx", "linhas": 3}
+2026-03-26 08:45:31,134 INFO app.sudoeste Leitura das planilhas concluida | {"fluxo": "sudoeste-inicial", "linhas_base": 5, "linhas_denodo": 3, "linhas_recebimento": 6}
+2026-03-26 08:45:31,144 INFO app.sudoeste Base preparada e validada | {"colunas_obrigatorias": {"associado": "ASSOCIADO", "contrato": "N do Contrato", "cpf": "CPF", "parcela": "N Parcela"}, "fluxo": "sudoeste-inicial", "linhas_entrada": 5, "linhas_pos_deduplicacao": 5}
+2026-03-26 08:45:31,158 INFO app.sudoeste Recebimento preparado e validado | {"coluna_cpf": "CPF/CNPJ", "colunas_obrigatorias": {"associado": "Associado", "data": "Data", "historico": "Historico", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-inicial", "linhas_consideradas": 5, "linhas_entrada": 6, "linhas_ignoradas_historico": 1}
+2026-03-26 08:45:31,166 INFO app.sudoeste Denodo preparado e validado | {"colunas_obrigatorias": {"cpf": "cpf_cnpj_formatado", "protocolo": "protocolo", "solucao_associada": "solucao_associada"}, "fluxo": "sudoeste-inicial", "linhas": 3}
+2026-03-26 08:45:31,168 INFO app.sudoeste Iniciando etapa de match | {"fluxo": "sudoeste-inicial", "linhas_recebimento_consideradas": 5}
+2026-03-26 08:45:31,185 INFO app.sudoeste Processamento de frames concluido | {"base_match_ambiguo": 1, "base_match_ausente": 1, "base_match_confirmado": 3, "denodo_match_ambiguo": 0, "denodo_match_ausente": 2, "denodo_match_confirmado": 3, "fluxo": "sudoeste-inicial", "linhas_diagnostico": 5, "linhas_saida": 5}
+2026-03-26 08:45:31,185 INFO app.sudoeste Iniciando exportacao de Excel | {"fluxo": "sudoeste-inicial", "linhas": 5, "sheet_name": "Sudoeste Inicial"}
+2026-03-26 08:45:31,214 INFO app.sudoeste Exportacao de Excel concluida | {"fluxo": "sudoeste-inicial", "sheet_name": "Sudoeste Inicial", "tamanho_bytes": 5485}
+2026-03-26 08:45:31,285 INFO app.sudoeste_direto Iniciando fluxo sudoeste-direto
+2026-03-26 08:45:31,286 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,286 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "tamanho_bytes": 5422}
+2026-03-26 08:45:31,297 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 10, "contexto": "sudoeste-direto/processada", "formato": "xlsx", "linhas": 8}
+2026-03-26 08:45:31,298 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "tamanho_bytes": 5033}
+2026-03-26 08:45:31,305 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-direto/direta", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,306 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 2, "linhas_processada": 8}
+2026-03-26 08:45:31,307 INFO app.sudoeste_direto Validacao de colunas obrigatorias concluida | {"colunas_direta": {"cpf": "Documento", "dt_acionamento": "DT ACIONAMENTO", "produto": "Produto", "vencimento": "Data de Vencimento"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,316 INFO app.sudoeste_direto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,334 INFO app.sudoeste_direto Processamento de frames concluido | {"fluxo": "sudoeste-direto", "grupos_com_match": 2, "grupos_sem_cpf": 0, "grupos_sem_match": 1, "grupos_total": 3, "linhas_saida": 2}
+2026-03-26 08:45:31,335 INFO app.sudoeste_direto Iniciando exportacao de Excel | {"fluxo": "sudoeste-direto", "linhas": 2, "sheet_name": "Sudoeste Direto"}
+2026-03-26 08:45:31,359 INFO app.sudoeste_direto Exportacao de Excel concluida | {"fluxo": "sudoeste-direto", "tamanho_bytes": 5304}
+2026-03-26 08:45:31,424 INFO app.sudoeste_direto Iniciando fluxo sudoeste-direto
+2026-03-26 08:45:31,424 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,424 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "tamanho_bytes": 5045}
+2026-03-26 08:45:31,433 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 8, "contexto": "sudoeste-direto/processada", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,433 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "tamanho_bytes": 4982}
+2026-03-26 08:45:31,440 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-direto/direta", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:31,440 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 1, "linhas_processada": 2}
+2026-03-26 08:45:31,441 INFO app.sudoeste_direto Validacao de colunas obrigatorias concluida | {"colunas_direta": {"cpf": "Documento", "dt_acionamento": "DT ACIONAMENTO", "produto": "Produto", "vencimento": "Vencimento"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,444 INFO app.sudoeste_direto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,453 INFO app.sudoeste_direto Processamento de frames concluido | {"fluxo": "sudoeste-direto", "grupos_com_match": 1, "grupos_sem_cpf": 0, "grupos_sem_match": 0, "grupos_total": 1, "linhas_saida": 1}
+2026-03-26 08:45:31,453 INFO app.sudoeste_direto Iniciando exportacao de Excel | {"fluxo": "sudoeste-direto", "linhas": 1, "sheet_name": "Sudoeste Direto"}
+2026-03-26 08:45:31,481 INFO app.sudoeste_direto Exportacao de Excel concluida | {"fluxo": "sudoeste-direto", "tamanho_bytes": 5151}
+2026-03-26 08:45:31,558 INFO app.sudoeste_indireto Iniciando fluxo sudoeste-indireto
+2026-03-26 08:45:31,558 INFO app.sudoeste_indireto Iniciando processamento de frames | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,559 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/processada", "tamanho_bytes": 5513}
+2026-03-26 08:45:31,570 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-indireto/processada", "formato": "xlsx", "linhas": 12}
+2026-03-26 08:45:31,571 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/indireto", "tamanho_bytes": 4996}
+2026-03-26 08:45:31,577 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-indireto/indireto", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,577 INFO app.sudoeste_indireto Leitura das planilhas concluida | {"fluxo": "sudoeste-indireto", "linhas_indireto": 2, "linhas_processada": 12}
+2026-03-26 08:45:31,593 INFO app.sudoeste_indireto Validacao de colunas obrigatorias concluida | {"colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto_legado": "SICREDI_Produto_Legado", "ultimo_acionamento": "UltimoAcionamentoData", "vencimento_mais_antigo": "VencimentoMaisAntigo"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,599 INFO app.sudoeste_indireto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,612 INFO app.sudoeste_indireto Processamento de frames concluido | {"fluxo": "sudoeste-indireto", "grupos_com_match": 2, "grupos_sem_cpf": 0, "grupos_sem_match": 1, "grupos_total": 3, "linhas_saida": 2}
+2026-03-26 08:45:31,612 INFO app.sudoeste_indireto Iniciando exportacao de Excel | {"fluxo": "sudoeste-indireto", "linhas": 2, "sheet_name": "Sudoeste Indireto"}
+2026-03-26 08:45:31,639 INFO app.sudoeste_indireto Exportacao de Excel concluida | {"fluxo": "sudoeste-indireto", "tamanho_bytes": 5303}
+2026-03-26 08:45:31,728 INFO app.sudoeste_consolidado Iniciando fluxo sudoeste-consolidado
+2026-03-26 08:45:31,728 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-direto no consolidado | {"fluxo": "sudoeste-consolidado"}
+2026-03-26 08:45:31,728 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,729 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "tamanho_bytes": 5091}
+2026-03-26 08:45:31,738 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 10, "contexto": "sudoeste-direto/processada", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,738 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "tamanho_bytes": 4985}
+2026-03-26 08:45:31,745 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-direto/direta", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:31,745 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 1, "linhas_processada": 2}
+2026-03-26 08:45:31,746 INFO app.sudoeste_direto Validacao de colunas obrigatorias concluida | {"colunas_direta": {"cpf": "Documento", "dt_acionamento": "DT ACIONAMENTO", "produto": "Produto", "vencimento": "Data de Vencimento"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,754 INFO app.sudoeste_direto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,761 INFO app.sudoeste_direto Processamento de frames concluido | {"fluxo": "sudoeste-direto", "grupos_com_match": 1, "grupos_sem_cpf": 0, "grupos_sem_match": 0, "grupos_total": 1, "linhas_saida": 1}
+2026-03-26 08:45:31,761 INFO app.sudoeste_consolidado Etapa sudoeste-direto concluida no consolidado | {"fluxo": "sudoeste-consolidado", "linhas_saida": 1}
+2026-03-26 08:45:31,761 INFO app.sudoeste_consolidado Iniciando etapa sudoeste-indireto no consolidado | {"fluxo": "sudoeste-consolidado"}
+2026-03-26 08:45:31,761 INFO app.sudoeste_indireto Iniciando processamento de frames | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,761 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/processada", "tamanho_bytes": 5091}
+2026-03-26 08:45:31,772 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 10, "contexto": "sudoeste-indireto/processada", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,772 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/indireto", "tamanho_bytes": 4957}
+2026-03-26 08:45:31,777 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-indireto/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:31,778 INFO app.sudoeste_indireto Leitura das planilhas concluida | {"fluxo": "sudoeste-indireto", "linhas_indireto": 1, "linhas_processada": 2}
+2026-03-26 08:45:31,778 INFO app.sudoeste_indireto Validacao de colunas obrigatorias concluida | {"colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto_legado": "SICREDI_Produto_Legado", "ultimo_acionamento": "UltimoAcionamentoData", "vencimento_mais_antigo": "VencimentoMaisAntigo"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,784 INFO app.sudoeste_indireto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,792 INFO app.sudoeste_indireto Processamento de frames concluido | {"fluxo": "sudoeste-indireto", "grupos_com_match": 1, "grupos_sem_cpf": 0, "grupos_sem_match": 0, "grupos_total": 1, "linhas_saida": 1}
+2026-03-26 08:45:31,792 INFO app.sudoeste_consolidado Etapa sudoeste-indireto concluida no consolidado | {"fluxo": "sudoeste-consolidado", "linhas_saida": 1}
+2026-03-26 08:45:31,793 INFO app.sudoeste_consolidado Iniciando exportacao de Excel consolidado | {"fluxo": "sudoeste-consolidado", "linhas_direto": 1, "linhas_indireto": 1}
+2026-03-26 08:45:31,837 INFO app.sudoeste_consolidado Exportacao de Excel consolidado concluida | {"fluxo": "sudoeste-consolidado", "tamanho_bytes": 5955}
+2026-03-26 08:45:31,838 INFO app.sudoeste_direto Iniciando fluxo sudoeste-direto
+2026-03-26 08:45:31,838 INFO app.sudoeste_direto Iniciando processamento de frames | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,838 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/processada", "tamanho_bytes": 5091}
+2026-03-26 08:45:31,845 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 10, "contexto": "sudoeste-direto/processada", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,846 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-direto/direta", "tamanho_bytes": 4985}
+2026-03-26 08:45:31,854 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 9, "contexto": "sudoeste-direto/direta", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:31,855 INFO app.sudoeste_direto Leitura das planilhas concluida | {"fluxo": "sudoeste-direto", "linhas_direta": 1, "linhas_processada": 2}
+2026-03-26 08:45:31,856 INFO app.sudoeste_direto Validacao de colunas obrigatorias concluida | {"colunas_direta": {"cpf": "Documento", "dt_acionamento": "DT ACIONAMENTO", "produto": "Produto", "vencimento": "Data de Vencimento"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,859 INFO app.sudoeste_direto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-direto"}
+2026-03-26 08:45:31,865 INFO app.sudoeste_direto Processamento de frames concluido | {"fluxo": "sudoeste-direto", "grupos_com_match": 1, "grupos_sem_cpf": 0, "grupos_sem_match": 0, "grupos_total": 1, "linhas_saida": 1}
+2026-03-26 08:45:31,865 INFO app.sudoeste_direto Iniciando exportacao de Excel | {"fluxo": "sudoeste-direto", "linhas": 1, "sheet_name": "Sudoeste Direto"}
+2026-03-26 08:45:31,880 INFO app.sudoeste_direto Exportacao de Excel concluida | {"fluxo": "sudoeste-direto", "tamanho_bytes": 5180}
+2026-03-26 08:45:31,890 INFO app.sudoeste_indireto Iniciando fluxo sudoeste-indireto
+2026-03-26 08:45:31,890 INFO app.sudoeste_indireto Iniciando processamento de frames | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,890 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/processada", "tamanho_bytes": 5091}
+2026-03-26 08:45:31,897 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 10, "contexto": "sudoeste-indireto/processada", "formato": "xlsx", "linhas": 2}
+2026-03-26 08:45:31,897 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-indireto/indireto", "tamanho_bytes": 4957}
+2026-03-26 08:45:31,905 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 4, "contexto": "sudoeste-indireto/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 08:45:31,905 INFO app.sudoeste_indireto Leitura das planilhas concluida | {"fluxo": "sudoeste-indireto", "linhas_indireto": 1, "linhas_processada": 2}
+2026-03-26 08:45:31,906 INFO app.sudoeste_indireto Validacao de colunas obrigatorias concluida | {"colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto_legado": "SICREDI_Produto_Legado", "ultimo_acionamento": "UltimoAcionamentoData", "vencimento_mais_antigo": "VencimentoMaisAntigo"}, "colunas_processada": {"associado": "Associado", "cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,909 INFO app.sudoeste_indireto Iniciando match por CPF/CNPJ | {"fluxo": "sudoeste-indireto"}
+2026-03-26 08:45:31,915 INFO app.sudoeste_indireto Processamento de frames concluido | {"fluxo": "sudoeste-indireto", "grupos_com_match": 1, "grupos_sem_cpf": 0, "grupos_sem_match": 0, "grupos_total": 1, "linhas_saida": 1}
+2026-03-26 08:45:31,915 INFO app.sudoeste_indireto Iniciando exportacao de Excel | {"fluxo": "sudoeste-indireto", "linhas": 1, "sheet_name": "Sudoeste Indireto"}
+2026-03-26 08:45:31,930 INFO app.sudoeste_indireto Exportacao de Excel concluida | {"fluxo": "sudoeste-indireto", "tamanho_bytes": 5156}
+2026-03-26 08:53:05,039 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,041 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direto": "Acionamento Direto.xlsx", "indireto": "Acionamento Indireto.xlsx", "inicial_processado": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,043 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,044 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,045 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "inicial_processado", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 383935}
+2026-03-26 08:53:05,047 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Direto.xlsx", "campo": "direto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 487095}
+2026-03-26 08:53:05,048 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Indireto.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 275850}
+2026-03-26 08:53:05,050 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-processado-v2", "mapeamento": {"direto_excel": "direto", "indireto_excel": "indireto", "inicial_processado_excel": "inicial_processado"}, "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,051 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,051 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:05,052 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 383935}
+2026-03-26 08:53:07,668 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 5205, "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:07,669 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 487095}
+2026-03-26 08:53:10,052 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 22, "contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 185, "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:10,062 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_bytes": 275850}
+2026-03-26 08:53:11,606 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 21, "contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 3509, "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:11,609 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69"}
+2026-03-26 08:53:13,711 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_descartadas": 4906, "linhas_inicial": 5205, "linhas_mantidas": 299, "request_id": "bef32072337e48378e48ccb43d374a69", "validadas_direto": 127, "validadas_indireto": 172}
+2026-03-26 08:53:14,183 INFO app.api Processamento concluido com sucesso | {"arquivo_saida": "sudoeste_processado_v2.xlsx", "fluxo": "sudoeste-processado-v2", "request_id": "bef32072337e48378e48ccb43d374a69", "tamanho_saida_bytes": 27969}
+2026-03-26 09:56:34,250 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 09:56:34,250 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 5054}
+2026-03-26 09:56:34,263 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 4}
+2026-03-26 09:56:34,263 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4946}
+2026-03-26 09:56:34,271 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 3}
+2026-03-26 09:56:34,271 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4906}
+2026-03-26 09:56:34,280 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 09:56:34,281 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 09:56:34,287 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 4, "linhas_saida_direto": 2, "linhas_saida_indireto": 1, "linhas_sem_match": 1, "validadas_direto": 2, "validadas_indireto": 1}
+2026-03-26 09:56:34,369 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 09:56:34,370 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 4974}
+2026-03-26 09:56:34,379 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 2}
+2026-03-26 09:56:34,379 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4879}
+2026-03-26 09:56:34,387 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 1}
+2026-03-26 09:56:34,387 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4903}
+2026-03-26 09:56:34,395 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 09:56:34,396 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 09:56:34,399 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 2, "linhas_saida_direto": 1, "linhas_saida_indireto": 1, "linhas_sem_match": 0, "validadas_direto": 1, "validadas_indireto": 1}
+2026-03-26 09:58:11,718 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,720 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direto": "Acionamento Direto.xlsx", "indireto": "Acionamento Indireto.xlsx", "inicial_processado": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,720 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,721 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,721 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "inicial_processado", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 383935}
+2026-03-26 09:58:11,722 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Direto.xlsx", "campo": "direto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 487095}
+2026-03-26 09:58:11,723 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Indireto.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 275850}
+2026-03-26 09:58:11,724 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-processado-v2", "mapeamento": {"direto_excel": "direto", "indireto_excel": "indireto", "inicial_processado_excel": "inicial_processado"}, "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,725 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,731 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:11,741 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 383935}
+2026-03-26 09:58:14,533 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 5205, "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:14,534 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 487095}
+2026-03-26 09:58:16,828 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 22, "contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 185, "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:16,834 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_bytes": 275850}
+2026-03-26 09:58:18,522 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 21, "contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 3509, "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:18,525 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308"}
+2026-03-26 09:58:20,753 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 5205, "linhas_saida_direto": 127, "linhas_saida_indireto": 188, "linhas_sem_match": 4906, "request_id": "44796d37b950457a82d92f9ab0e2d308", "validadas_direto": 127, "validadas_indireto": 188}
+2026-03-26 09:58:21,237 INFO app.api Processamento concluido com sucesso | {"arquivo_saida": "sudoeste_processado_v2.zip", "fluxo": "sudoeste-processado-v2", "request_id": "44796d37b950457a82d92f9ab0e2d308", "tamanho_saida_bytes": 31704}
+2026-03-26 10:00:08,330 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 10:00:08,331 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 5054}
+2026-03-26 10:00:08,347 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 4}
+2026-03-26 10:00:08,347 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4946}
+2026-03-26 10:00:08,357 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 3}
+2026-03-26 10:00:08,357 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4906}
+2026-03-26 10:00:08,365 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 10:00:08,366 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 10:00:08,372 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 4, "linhas_saida_direto": 2, "linhas_saida_indireto": 1, "linhas_sem_match": 1, "validadas_direto": 2, "validadas_indireto": 1}
+2026-03-26 10:00:08,435 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2"}
+2026-03-26 10:00:08,436 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "tamanho_bytes": 4974}
+2026-03-26 10:00:08,447 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 5, "contexto": "sudoeste-processado-v2/inicial-processado", "formato": "xlsx", "linhas": 2}
+2026-03-26 10:00:08,448 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "tamanho_bytes": 4879}
+2026-03-26 10:00:08,457 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/direto", "formato": "xlsx", "linhas": 1}
+2026-03-26 10:00:08,457 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "tamanho_bytes": 4903}
+2026-03-26 10:00:08,466 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 2, "contexto": "sudoeste-processado-v2/indireto", "formato": "xlsx", "linhas": 1}
+2026-03-26 10:00:08,467 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Titulo"}, "fluxo": "sudoeste-processado-v2"}
+2026-03-26 10:00:08,472 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 2, "linhas_saida_direto": 1, "linhas_saida_indireto": 1, "linhas_sem_match": 0, "validadas_direto": 1, "validadas_indireto": 1}
+2026-03-26 10:00:51,877 INFO app.api Recebida requisicao de processamento | {"campos_esperados": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,881 INFO app.api Arquivos recebidos na requisicao | {"arquivos": {"direto": "Acionamento Direto.xlsx", "indireto": "Acionamento Indireto.xlsx", "inicial_processado": "sudoeste_inicial_processado.xlsx"}, "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,882 INFO app.api Chaves multipart recebidas na requisicao | {"chaves_multipart": ["inicial_processado", "direto", "indireto"], "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,882 INFO app.api Validacao de campos obrigatorios concluida | {"fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,883 INFO app.api Arquivo lido com sucesso | {"arquivo": "sudoeste_inicial_processado.xlsx", "campo": "inicial_processado", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 383935}
+2026-03-26 10:00:51,887 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Direto.xlsx", "campo": "direto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 487095}
+2026-03-26 10:00:51,889 INFO app.api Arquivo lido com sucesso | {"arquivo": "Acionamento Indireto.xlsx", "campo": "indireto", "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 275850}
+2026-03-26 10:00:51,898 INFO app.api Mapeamento de parametros para o processador | {"fluxo": "sudoeste-processado-v2", "mapeamento": {"direto_excel": "direto", "indireto_excel": "indireto", "inicial_processado_excel": "inicial_processado"}, "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,901 INFO app.api Iniciando processamento do fluxo | {"fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,902 INFO app.sudoeste_processadov2.processador Iniciando processamento de frames | {"fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:51,903 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 383935}
+2026-03-26 10:00:54,778 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 16, "contexto": "sudoeste-processado-v2/inicial-processado", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 5205, "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:54,779 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 487095}
+2026-03-26 10:00:57,026 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 22, "contexto": "sudoeste-processado-v2/direto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 185, "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:57,027 INFO app.sudoeste Iniciando leitura de planilha | {"contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_bytes": 275850}
+2026-03-26 10:00:58,834 INFO app.sudoeste Leitura de planilha concluida | {"colunas": 21, "contexto": "sudoeste-processado-v2/indireto", "fluxo": "sudoeste-processado-v2", "formato": "xlsx", "linhas": 3509, "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:00:58,836 INFO app.sudoeste_processadov2.processador Colunas obrigatorias validadas | {"colunas_direto": {"cpf": "CPF/CNPJ", "produto": "Produto"}, "colunas_indireto": {"cpf": "ClienteCPFCNPJ", "produto": "SICREDI_Produto_Legado"}, "colunas_inicial": {"cpf": "CPF/CNPJ", "parcela": "Parcela", "titulo": "Titulo", "valor_titulo": "Valor Título"}, "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43"}
+2026-03-26 10:01:01,005 INFO app.sudoeste_processadov2.processador Processamento concluido | {"fluxo": "sudoeste-processado-v2", "linhas_inicial": 5205, "linhas_saida_direto": 127, "linhas_saida_indireto": 188, "linhas_sem_match": 4906, "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "validadas_direto": 127, "validadas_indireto": 188}
+2026-03-26 10:01:01,484 INFO app.api Processamento concluido com sucesso | {"arquivo_saida": "sudoeste_processado_v2.xlsx", "fluxo": "sudoeste-processado-v2", "request_id": "fc8bbad7a7604e0e9eed715a06a20e43", "tamanho_saida_bytes": 30084}

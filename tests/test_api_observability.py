@@ -249,6 +249,32 @@ class ApiObservabilityTests(unittest.TestCase):
         self.assertEqual(received_payload["direta_excel"], b"direta-bytes")
         self.assertEqual(received_payload["indireto_excel"], b"indireto-bytes")
 
+    def test_fluxo_sudoeste_processado_v2_mapeia_para_assinatura_real_do_processador(self):
+        files = {
+            "inicial_processado": ("inicial_processado.xlsx", b"inicial-bytes", "application/octet-stream"),
+            "direto": ("direto.xlsx", b"direto-bytes", "application/octet-stream"),
+            "indireto": ("indireto.xlsx", b"indireto-bytes", "application/octet-stream"),
+        }
+        received_payload: dict[str, bytes] = {}
+
+        def _processor_assinatura_real(
+            inicial_processado_excel: bytes,
+            direto_excel: bytes,
+            indireto_excel: bytes,
+        ):
+            received_payload["inicial_processado_excel"] = inicial_processado_excel
+            received_payload["direto_excel"] = direto_excel
+            received_payload["indireto_excel"] = indireto_excel
+            return io.BytesIO(b"xlsx")
+
+        with patch("app.api.processar_sudoeste_processadov2", side_effect=_processor_assinatura_real):
+            response = self.client.post("/sudoeste-processado-v2", files=files)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(received_payload["inicial_processado_excel"], b"inicial-bytes")
+        self.assertEqual(received_payload["direto_excel"], b"direto-bytes")
+        self.assertEqual(received_payload["indireto_excel"], b"indireto-bytes")
+
 
 if __name__ == "__main__":
     unittest.main()

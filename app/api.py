@@ -13,6 +13,7 @@ from .sudoeste import processar_sudoeste
 from .sudoeste_consolidado import processar_sudoeste_consolidado
 from .sudoeste_direto import processar_sudoeste_direto
 from .sudoeste_indireto import processar_sudoeste_indireto
+from .sudoeste_processadov2 import processar_sudoeste_processadov2
 
 configure_logging()
 logger = logging.getLogger(__name__)
@@ -40,6 +41,10 @@ async def index():
     return FileResponse(STATIC_DIR / "index.html")
 
 
+# essa função é responsável por extrair o nome do arquivo 
+# enviado, garantindo que seja um nome válido e 
+# não apenas espaços em branco. Se o upload for None ou o
+# nome do arquivo for vazio, ela retorna None.
 def _extract_file_name(upload: UploadFile | None) -> str | None:
     if upload is None:
         return None
@@ -48,8 +53,14 @@ def _extract_file_name(upload: UploadFile | None) -> str | None:
     return None
 
 
+# essa função verifica quais campos de upload estão ausentes, ou seja, quais uploads são None 
+# ou têm nomes de arquivos inválidos. Ela retorna uma lista dos nomes dos campos que estão 
+# faltando, o que é útil para validar a entrada do usuário e fornecer feedback claro sobre 
+# quais arquivos precisam ser enviados.
 def _get_missing_fields(uploads: dict[str, UploadFile | None]) -> list[str]:
     return [field for field, upload in uploads.items() if _extract_file_name(upload) is None]
+
+
 
 
 async def _read_upload_bytes(
@@ -90,6 +101,7 @@ async def _executar_fluxo_upload(
     uploads: dict[str, UploadFile | None],
     processor: Callable[..., object],
     output_filename: str,
+    output_media_type: str = EXCEL_MEDIA_TYPE,
     multipart_keys: list[str] | None = None,
     processor_param_map: dict[str, str] | None = None,
 ) -> StreamingResponse:
@@ -184,7 +196,7 @@ async def _executar_fluxo_upload(
 
             return StreamingResponse(
                 resultado,
-                media_type=EXCEL_MEDIA_TYPE,
+                media_type=output_media_type,
                 headers={
                     "Content-Disposition": f"attachment; filename={output_filename}",
                     "X-Request-ID": request_id,
@@ -304,6 +316,32 @@ async def sudoeste_consolidado(
         processor_param_map={
             "processada_excel": "processada",
             "direta_excel": "direta",
+            "indireto_excel": "indireto",
+        },
+    )
+
+
+@app.post("/sudoeste-processado-v2")
+async def sudoeste_processado_v2(
+    request: Request,
+    inicial_processado: UploadFile | None = File(None),
+    direto: UploadFile | None = File(None),
+    indireto: UploadFile | None = File(None),
+):
+    multipart_keys = list((await request.form()).keys())
+    return await _executar_fluxo_upload(
+        fluxo="sudoeste-processado-v2",
+        uploads={
+            "inicial_processado": inicial_processado,
+            "direto": direto,
+            "indireto": indireto,
+        },
+        processor=processar_sudoeste_processadov2,
+        output_filename="sudoeste_processado_v2.xlsx",
+        multipart_keys=multipart_keys,
+        processor_param_map={
+            "inicial_processado_excel": "inicial_processado",
+            "direto_excel": "direto",
             "indireto_excel": "indireto",
         },
     )
